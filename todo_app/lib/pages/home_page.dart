@@ -29,6 +29,14 @@ class _HomePage extends State<HomePage>{
   }
   final editController = TextEditingController();
 
+  // TO save a new todo
+  void saveNewTodo(){
+    setState(() {
+      todoList.add([false, editController.text]);
+    });
+    Navigator.of(context).pop();
+  }
+
   // To show dialogbox when floatingActionBtn is clicked to create a new task
   void createNewTask(){
     showDialog(
@@ -36,6 +44,8 @@ class _HomePage extends State<HomePage>{
       builder: (context){
         return Dialogbox(
           mycontroller: editController,
+          onCancel: ()=> Navigator.of(context).pop(),
+          onSave: saveNewTodo,
         );
       }
     );
