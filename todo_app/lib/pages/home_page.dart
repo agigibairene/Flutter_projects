@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors_in_immutables, prefer_const_constructors, prefer_final_fields
-
 import 'package:flutter/material.dart';
 import 'package:todo_app/utils/dialogbox.dart';
 import 'package:todo_app/utils/todo_tile.dart';
@@ -34,6 +33,7 @@ class _HomePage extends State<HomePage>{
     setState(() {
       todoList.add([false, editController.text]);
     });
+    editController.clear();
     Navigator.of(context).pop();
   }
 
@@ -51,6 +51,12 @@ class _HomePage extends State<HomePage>{
     );
   }
 
+  void deleteTask(int index){
+    setState(() {
+      todoList.removeAt(index);
+    });
+  }
+
   @override
   Widget build (BuildContext context){
     return Scaffold(
@@ -60,7 +66,7 @@ class _HomePage extends State<HomePage>{
           child: Text("TODO APP", style: TextStyle(color: Colors.white),),
         ),
       ),
-      backgroundColor: Colors.purple[200],
+      backgroundColor: Colors.purple[100],
       floatingActionButton: FloatingActionButton(
         onPressed: createNewTask,
         backgroundColor: Colors.purple,
@@ -70,7 +76,12 @@ class _HomePage extends State<HomePage>{
       body: ListView.builder(
         itemCount: todoList.length,
         itemBuilder: (context, index){
-          return TodoTile(taskName: todoList[index][1], completed: todoList[index][0], onChanged: (value)=>clickCheckedBox(value, index));
+          return TodoTile(
+            taskName: todoList[index][1], 
+            completed: todoList[index][0], 
+            onChanged: (value) => clickCheckedBox(value, index),
+            deleteFunction: (context) => deleteTask(index),
+          );
         }
       ),
     );
