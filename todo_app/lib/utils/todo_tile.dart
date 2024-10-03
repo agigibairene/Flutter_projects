@@ -47,7 +47,7 @@ class TodoTile extends StatelessWidget{
                 fontWeight: FontWeight.w400,
                 decoration: completed ? TextDecoration.lineThrough : TextDecoration.none,
                 decorationColor: Colors.red,
-                decorationThickness: 2
+                decorationThickness: 3
               ),
             )
           ],
