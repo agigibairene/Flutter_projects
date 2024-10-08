@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last
 
 import 'package:ecommerce/pages/cart.dart';
 import 'package:ecommerce/pages/home.dart';
@@ -37,10 +37,21 @@ class _HomePageState extends State<HomePage> {
         onTabChange: (index) =>navToPage(index),
       ),
       drawer: Drawer(
-        backgroundColor: Colors.grey[900],
+        backgroundColor: Colors.grey[800],
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            DrawerHeader(child: Image.asset('images/adidas_logo.png', height: 200,color: Colors.white,)),
+           Column(
+            children: [
+               DrawerHeader(
+              child: Image.asset('images/adis.png', height: 200,color: Colors.white,),
+            ),
+          
+
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 25),
+              child: Divider(color: Colors.grey[800],),
+            ),
 
             Padding(
               padding: EdgeInsets.only(left: 25),
@@ -58,8 +69,10 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
 
+            ],
+           ),
             Padding(
-              padding: EdgeInsets.only(left: 25),
+              padding: EdgeInsets.only(left: 25, bottom: 25),
               child: ListTile(
                 leading: Icon(Icons.logout, size: 30, color: Colors.white,),
                 title: Text("Logout", style: GoogleFonts.openSans(color: Colors.white, fontSize: 20),),
