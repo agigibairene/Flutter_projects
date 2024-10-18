@@ -25,7 +25,7 @@ class MyBottomNav extends StatelessWidget {
 
           GButton(
             icon: Icons.home,
-            text: "Home",
+            text: "Shop",
           ),
 
           GButton(icon: Icons.shopping_cart, text: "Cart")

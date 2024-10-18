@@ -68,6 +68,7 @@ flutter:
     - images/cool.jfif
     - images/download.jfif
     - images/adidas_logo.png
+    - images/cool.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

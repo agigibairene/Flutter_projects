@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last
 
 import 'package:ecommerce/pages/cart.dart';
-import 'package:ecommerce/pages/home.dart';
+import 'package:ecommerce/pages/shop.dart';
 import 'package:ecommerce/utils/bottom_nav.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
 
   int _selectedIndex = 0;
 
-  final List pages = [Home(), Cart()];
+  final List pages = [Shop(), Cart()];
 
   void navToPage(int index) {
     setState(() {
