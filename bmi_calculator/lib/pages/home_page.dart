@@ -75,63 +75,65 @@ class _HomePage extends State<HomePage>{
         title: Center(child: Text("BMI CALCULATOR", style: TextStyle(color: Colors.white),)),
         backgroundColor: Colors.grey[700],
       ),
-      body: Padding(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          children: [
-            Center(
-              child: ToggleBtn(
-                isSelected: isSelected, 
-                onPressed: toggleToBtn
-              ),
-            ),
-
-            SizedBox(height: 40,),
-
-            Padding(
-              padding: EdgeInsets.all(20),
-              child: TextField(
-                controller: heightTxt,
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  hintText: height,
-                  border: OutlineInputBorder()
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            children: [
+              Center(
+                child: ToggleBtn(
+                  isSelected: isSelected, 
+                  onPressed: toggleToBtn
                 ),
               ),
-            ),
-
-            SizedBox(height: 40,),
-
-            Padding(
-              padding: EdgeInsets.all(20),
-              child: TextField(
-                controller: weightTxt,
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  hintText: weight,
-                  border: OutlineInputBorder()
+        
+              SizedBox(height: 40,),
+        
+              Padding(
+                padding: EdgeInsets.all(20),
+                child: TextField(
+                  controller: heightTxt,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    hintText: height,
+                    border: OutlineInputBorder()
+                  ),
                 ),
               ),
-            ),
-
-            SizedBox(height: 40,),
-
-            ElevatedButton(
-              onPressed: calculate, 
-              child: Text("Calculate", style: TextStyle(fontSize: 20, color: Colors.white),),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.cyanAccent[700],
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)
-                )
+        
+              SizedBox(height: 40,),
+        
+              Padding(
+                padding: EdgeInsets.all(20),
+                child: TextField(
+                  controller: weightTxt,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    hintText: weight,
+                    border: OutlineInputBorder()
+                  ),
+                ),
               ),
-            ),
-
-            Padding(
-              padding: EdgeInsets.all(20),
-              child: Text('Results: ${results.toStringAsFixed(3)}', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
-            )
-          ],
+        
+              SizedBox(height: 40,),
+        
+              ElevatedButton(
+                onPressed: calculate, 
+                child: Text("Calculate", style: TextStyle(fontSize: 20, color: Colors.white),),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.cyanAccent[700],
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8)
+                  )
+                ),
+              ),
+        
+              Padding(
+                padding: EdgeInsets.all(20),
+                child: Text('Results: ${results.toStringAsFixed(3)}', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
+              )
+            ],
+          ),
         ),
       ),
     );
