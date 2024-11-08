@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: "Weather App",
       home: Weather(),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.light(),
+      theme: ThemeData.dark(),
     );
   }
 }
