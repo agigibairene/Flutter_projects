@@ -28,7 +28,12 @@ class QuestionScreen extends StatelessWidget{
                   child: GestureDetector(
                     onTap: (){
                       questionProvider.answeredQuestions(answer);
-                      questionProvider.getCurrentQuestion();
+                      if (questionProvider.currentIndex >= questionProvider.allQuestions.length-1){
+                        Navigator.pushNamed(context, "/score");
+                      }
+                      else{
+                        questionProvider.getCurrentQuestion();
+                      }
                     },
                     child: Container(
                       padding: EdgeInsets.symmetric(vertical: 20),
