@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:quiz_app/first_screen.dart';
 import 'package:quiz_app/models/question_provider.dart';
 import 'package:quiz_app/screens/question_screen.dart';
+import 'package:quiz_app/screens/score_screen.dart';
 
 void main(){
   runApp(
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget{
       debugShowCheckedModeBanner: false,
       routes: {
         "/first": (context)=>FirstScreen(),
-        "/question": (context)=>QuestionScreen()
+        "/question": (context)=>QuestionScreen(),
+        "/score": (context)=>ScoreScreen()
       },
     );    
   }
