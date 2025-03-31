@@ -33,6 +33,13 @@ class QuestionProvider extends ChangeNotifier{
       "choosenAnswer": answer,
       "isAnswerCorrect": correctAnswer.toString(),
     });
-    
+  }
+
+  void reset(BuildContext context){
+    _currentIndex = 0;
+    _score = 0;
+    answeredQuestionList = [];
+    Navigator.pushNamed(context, "/first");
+    notifyListeners();
   }
 }

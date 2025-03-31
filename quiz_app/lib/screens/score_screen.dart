@@ -28,32 +28,44 @@ class ScoreScreen extends StatelessWidget{
                 itemCount: questionProvider.answeredQuestionList.length,
                 itemBuilder: (context, index) {
                   return Row(
-                    spacing: 20,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CircleAvatar(
                         backgroundColor: questionProvider.answeredQuestionList[index]["isAnswerCorrect"] == "true" ? Colors.blue : Colors.purpleAccent,
                         child: Text((index+1).toString(), style: GoogleFonts.openSans(color: Colors.white, fontSize: 18), )
                       ),
-                      SizedBox(height: 20,),
-                      Column(
-                        spacing: 10,
-                        // mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(questionProvider.answeredQuestionList[index]["question"]!, softWrap: true, style: GoogleFonts.openSans(color: Colors.white, fontSize: 18), ),
-                          Text("Correct Ans: ${questionProvider.answeredQuestionList[index]["correctAnswer"]!}", style: GoogleFonts.openSans(color: Colors.yellowAccent, fontSize: 18)),
-                          Text("Your Ans: ${questionProvider.answeredQuestionList[index]["choosenAnswer"]!}", style: GoogleFonts.openSans(color: Colors.white, fontSize: 18)),
-                          
-                        ],
+                      const SizedBox(width: 20),
+                      Expanded(
+                        child: Column(
+                          spacing: 10,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(questionProvider.answeredQuestionList[index]["question"]!, style: GoogleFonts.openSans(color: Colors.white, fontSize: 18), ),
+                            Text("Correct Ans: ${questionProvider.answeredQuestionList[index]["correctAnswer"]!}", style: GoogleFonts.openSans(color: Colors.yellowAccent, fontSize: 18)),
+                            Text("Your Ans: ${questionProvider.answeredQuestionList[index]["choosenAnswer"]!}", style: GoogleFonts.openSans(color: Colors.white, fontSize: 18)),
+                          ],
+                        ),
                       )
                     ],
                   );
                 },
               )
+            ),
+          SizedBox(height: 20,),
+          TextButton(
+            onPressed: (){
+              questionProvider.reset(context);
+            },
+            child: Row(
+              spacing: 10,
+              children: [
+                Icon(Icons.restart_alt, color: Colors.white, size: 20,),
+                Text("Reset", style: TextStyle(color: Colors.white, fontSize: 20),)
+              ],
             )
-                    ],
-                  ),
+          )
+          ],
+          ),
           );
       })
     );   
