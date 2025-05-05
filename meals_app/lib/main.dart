@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:meals_app/providers/fav_meal.dart';
 import 'package:meals_app/screens/filters.dart';
 import 'package:meals_app/screens/homepage.dart';
+import 'package:provider/provider.dart';
 
 final theme = ThemeData(
   // useMaterial3: true,
@@ -13,7 +15,10 @@ final theme = ThemeData(
 );
 
 void main() {
-  runApp(const App());
+  runApp(ChangeNotifierProvider(
+    create: (context)=>FavMealProvider(),
+    child: const App(),
+  ));
 }
 
 class App extends StatelessWidget {
