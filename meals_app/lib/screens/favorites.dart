@@ -8,12 +8,16 @@ class  Favorites extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    Widget content = Center(child: Column(
-      children: [
-        Text("Oops.....!!!", style: Theme.of(context).textTheme.bodyLarge,),
-        Text("Select another category", style: TextStyle(color: Theme.of(context).colorScheme.primary),)
-      ],
-    ),);
+    Widget content = Center(
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Oops.....!!!", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white, fontSize: 28),),
+            const SizedBox(height: 8),
+            Text("Select A favorite meal", style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 18),)
+          ],
+      ),
+    );
 
     return Consumer<FavMealProvider>(
       builder: (context, favProvider, child){

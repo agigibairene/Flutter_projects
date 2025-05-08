@@ -15,7 +15,7 @@ class SideDrawer extends StatelessWidget{
             ),
             child: 
               ListTile(
-                leading: Icon(Icons.lunch_dining, size: 50,),
+                leading: Icon(Icons.fastfood, size: 50,),
                 title: Text("Cooking up", style: TextStyle(fontSize: 22),),
               )
           ),
@@ -25,6 +25,7 @@ class SideDrawer extends StatelessWidget{
             child: ListTile(
               leading: Icon(Icons.restaurant, size: 30, color: Colors.white,),
               title: Text("Meals",style: TextStyle(fontSize: 20),),
+              onTap: ()=>Navigator.pushNamed(context, '/home'),
             ),
           ),
           Padding(
@@ -33,7 +34,6 @@ class SideDrawer extends StatelessWidget{
               leading: Icon(Icons.settings, size: 30,),
               title: Text("Filters", style: TextStyle(fontSize: 20),),
               onTap: () => Navigator.pushNamed(context, '/filters'),
-
             ),
           )
         ],

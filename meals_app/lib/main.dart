@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:meals_app/providers/fav_meal.dart';
+import 'package:meals_app/providers/filters_provider.dart';
 import 'package:meals_app/screens/filters.dart';
 import 'package:meals_app/screens/homepage.dart';
 import 'package:provider/provider.dart';
@@ -15,10 +16,15 @@ final theme = ThemeData(
 );
 
 void main() {
-  runApp(ChangeNotifierProvider(
-    create: (context)=>FavMealProvider(),
-    child: const App(),
-  ));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context)=>FavMealProvider()),
+        ChangeNotifierProvider(create: (context)=>FiltersProvider())
+      ],
+      child: const App(),
+    )
+  );
 }
 
 class App extends StatelessWidget {
@@ -37,3 +43,4 @@ class App extends StatelessWidget {
     );
   }
 }
+
